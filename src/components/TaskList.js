@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Task from './Task';
 
-function TaskList({ tasks }) {
-  const [items, setItems] = useState(tasks);
+function TaskList({ tasks, items, setItems }) {
 
   function deleteItem(itemText) {
     // Filter out the item with the given text

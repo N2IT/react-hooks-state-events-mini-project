@@ -10,12 +10,31 @@ import { CATEGORIES, TASKS } from "../data";
 
 
 function App() {
+  const [selectedButtons, setSelectedButtons] = useState(Array(CATEGORIES.length).fill(false));
+  const [items, setItems] = useState(TASKS);
+  const [filterBy, setFilterBy] = useState("All");
+
+  const itemsToDisplay = items.filter((item) => {
+    if (filterBy === "All") {
+      return true;
+    } else {
+      return item.category === filterBy;
+    }
+  })
+
+//if the category === state then must be the selected category (button) 
+
+  function handleClick(category){
+    setFilterBy(category)
+    console.log(category)
+  }
+
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter categories={CATEGORIES} />
+      <CategoryFilter categories={CATEGORIES} handleClick={handleClick} selectedButtons={selectedButtons} filterBy={filterBy} seSelectedButtons={setSelectedButtons} />
       <NewTaskForm />
-      <TaskList tasks={TASKS} />
+      <TaskList items={itemsToDisplay} setItems={setItems} tasks={TASKS} />
     </div>
   );
 }
