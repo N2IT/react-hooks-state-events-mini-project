@@ -1,6 +1,8 @@
 import React from "react";
 
-function NewTaskForm({ categories }) {
+function NewTaskForm({ categories, filterBy }) {
+
+  const filteredCategories = categories.filter((category) => category !== "All")
   return (
     <form className="new-task-form">
       <label>
@@ -10,9 +12,10 @@ function NewTaskForm({ categories }) {
       <label>
         Category
         <select name="category">
-          {categories.map((category) => {
+          {filteredCategories.map((category) => {
             return (
-              <option key={category}>{category}</option>
+              <option key={category}>
+                {category}</option>
             )
           })}
           {/* render <option> elements for each category here */}

@@ -9,17 +9,17 @@ import React from "react";
 // If the button for "All" is selected, all the tasks should be displayed.
 
 
-function CategoryFilter({ categories, selectedButtons, handleClick, filterBy }) {
+function CategoryFilter({ categories, handleClick, filterBy }) {
   
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {categories.map((category, index) => {
+      {categories.map((category) => {
         return (
           <button
             key={category}
             className={filterBy === category ? "selected" : "" }
-            onClick={() => handleClick(index, category)} // Pass the index of the clicked button
+            onClick={() => handleClick( category)} // Pass the index of the clicked button
           >
             {category}
           </button>
