@@ -1,6 +1,6 @@
 import React from "react";
 
-function NewTaskForm() {
+function NewTaskForm({ categories }) {
   return (
     <form className="new-task-form">
       <label>
@@ -10,6 +10,11 @@ function NewTaskForm() {
       <label>
         Category
         <select name="category">
+          {categories.map((category) => {
+            return (
+              <option key={category}>{category}</option>
+            )
+          })}
           {/* render <option> elements for each category here */}
         </select>
       </label>

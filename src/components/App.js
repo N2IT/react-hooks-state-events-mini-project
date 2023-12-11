@@ -33,7 +33,7 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} handleClick={handleClick} selectedButtons={selectedButtons} filterBy={filterBy} seSelectedButtons={setSelectedButtons} />
-      <NewTaskForm />
+      <NewTaskForm categories={CATEGORIES} />
       <TaskList items={itemsToDisplay} setItems={setItems} tasks={TASKS} />
     </div>
   );
