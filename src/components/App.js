@@ -35,7 +35,7 @@ function App() {
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} handleClick={handleClick} filterBy={filterBy} />
       <NewTaskForm items={items} setItems={setItems} categories={CATEGORIES} onTaskFormSubmit={addNewItem} />
-      <TaskList items={itemsToDisplay} setItems={setItems} tasks={TASKS} />
+      <TaskList tasks={itemsToDisplay} setItems={setItems} />
     </div>
   );
 }

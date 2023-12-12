@@ -1,24 +1,24 @@
 import React from "react";
 import Task from './Task';
 
-function TaskList({ tasks, items, setItems }) {
+function TaskList({ tasks, setItems }) {
 
   function deleteItem(itemText) {
     // Filter out the item with the given text
-    const updatedItems = items.filter((item) => item.text !== itemText);
+    const updatedItems = tasks.filter((task) => task.text !== itemText);
     setItems(updatedItems);
   }
 
   return (
     <div className="tasks">
-      {items.map((task) => (
+      {tasks.map((task) => 
         <Task
           key={task.text}
           text={task.text}
           category={task.category}
           deleteItem={deleteItem}
         />
-      ))}
+      )}
     </div>
   );
 }
