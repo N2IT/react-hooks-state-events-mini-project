@@ -13,6 +13,10 @@ function App() {
   const [items, setItems] = useState(TASKS);
   const [filterBy, setFilterBy] = useState("All");
 
+  function addNewItem(task) {
+    setItems([...items, task ])
+  }
+
   const itemsToDisplay = items.filter((item) => {
     if (filterBy === "All") {
       return true;
@@ -21,20 +25,16 @@ function App() {
     }
   })
 
-
-
 //if the category === state then must be the selected category (button) 
 
   function handleClick(category){
     setFilterBy(category)
-
   }
-
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} handleClick={handleClick} filterBy={filterBy} />
-      <NewTaskForm categories={CATEGORIES} />
+      <NewTaskForm items={items} setItems={setItems} categories={CATEGORIES} onTaskFormSubmit={addNewItem} />
       <TaskList items={itemsToDisplay} setItems={setItems} tasks={TASKS} />
     </div>
   );
